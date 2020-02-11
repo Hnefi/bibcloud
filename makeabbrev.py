@@ -2,8 +2,8 @@
 
 #####
 ##### generates the dblp-abbrev file
-##### 
-##### 
+#####
+#####
 import sys
 
 global F
@@ -42,7 +42,6 @@ CONF = {
     'islped'    : ['y', "Proceedings of the YEAR International Symposium on Low Power Electronics and Design"],
     'hpca'      : ['o', "Proceedings of the OCCURENCE IEEE Symposium on High-Performance Computer Architecture (HPCA)"],
     'micro'     : ['o', "Proceedings of the OCCURENCE Annual IEEE/ACM International Symposium on Microarchitecture (MICRO)"],
-    'uss'       : ['o', "Proceedings of the OCCURENCE USENIX Security Symposium"],
     'apsys'     : ['y', "Proceedings of the YEAR Asia-Pacific Workshop on Systems (APSys)"],
     'ppopp'     : ['o', "Proceedings of the OCCURENCE ACM SIGPLAN Symposium on Principles and Practice of Parallel Programming (PPoPP)"],
     'wsdm'      : ['o', "Proceedings of the OCCURENCE International Conference on Web Search and Web Data Mining (WSDM)"],
@@ -109,7 +108,15 @@ CONF = {
     "minenet": ['o', "Proceedings of the OCCURENCE Annual ACM Workshop on Mining Network Data (MineNet)"],
     "memsys" : ['y', "Proceedings of the YEAR International Symposium on Memory Systems (MEMSYS)"],
     "oopsla" : ['o', "Proceedings of the OCCURENCE Annual ACM SIGPLAN Conference on Object-Oriented Programming, Systems, Languages, and Applications (OOPSLA)"],
-    "date" : ['y', "Proceedings of the YEAR Design, Automation, and Test in Europe Conference and Exhibition (DATE)"]
+    "date" : ['y', "Proceedings of the YEAR Design, Automation, and Test in Europe Conference and Exhibition (DATE)"],
+    "srds"   : ['o', "Proceedings of the OCCURENCE IEEE Symposium on Reliable Distributed Systems (SRDS)"],
+    "icnp"   : ['o', "Proceedings of the OCCURENCE IEEE International Conference on Network Protocols (ICNP)"],
+    "icdcs"  : ['o', "Proceedings of the OCCURENCE IEEE International Conference on Distributed Computing Systems (ICDCS)"],
+    "hpdc"   : ['o', "Proceedings of the OCCURENCE International Symposium on High-Performance Parallel and Distributed Computing (HPDC)"],
+    "hpts"   : ['y', "Proceedings of the YEAR International Workshop on High-Performance Transaction Systems (HTPS)"],
+    "middleware" : ['y',"Proceedings of the YEAR International Middleware Conference"],
+    "adms@vldb" : ['y', "Proceedings of the International Workshop on Accelerating Analytics and Data Management Systems Using Modern Processor and Storage Architectures (ADMS@VLDB)"],
+    "globecom" : ['y', "Proceedings of the YEAR IEEE Global Communications Conference (GLOBECOM)"],
 }
 
 SHORTCONF = {
@@ -127,11 +134,11 @@ def make_sigcomm(conf,year):
     s = c[1]
 
     yy = year % 100
-    ss = s.replace("YEAR", '%02d' % year) 
+    ss = s.replace("YEAR", '%02d' % year)
 
     if outtype == "short":
         confstr = conf.upper()
-        if conf in SHORTCONF: 
+        if conf in SHORTCONF:
             shortconf = confstr = SHORTCONF[conf]
 
         return "@string{"+conf+ '%02d' % yy +" = \"" + confstr + "\"}\n"
@@ -149,15 +156,15 @@ def make_sosp(conf,year,occurence):
     yy = year % 100
     if occurence>=11 and occurence <14:
         occ = str(occurence) +"th"
-    else: 
+    else:
         occ = str(occurence) + OCCURENCE_TABLE[occurence%10]
-    
+
     ss = s.replace("OCCURENCE",occ)
     if outtype == "short":
         return "@string{"+conf+ '%02d' % yy +" = \"" +conf.upper() +  "\"}\n"
 
     return "@string{"+conf+'%02d'%yy+" = \"" +ss + "\"}\n"
-    
+
 def make_asplos(conf,year,occurence):
     global CONF
 
@@ -190,14 +197,14 @@ def annual_occ(k,first_occ,first_y,end_y):
     for y in range(first_y,end_y):
         F.write(make_sosp(k,y,occ))
         occ = occ +1
-    
+
 
 def annual_year(k,first_y,end_y):
     for y in range(first_y,end_y):
         F.write(make_sigcomm(k,y))
-    
 
-    
+
+
 ###################################################
 # main
 ###################################################
@@ -211,9 +218,9 @@ else:
     sys.exit(1)
 
 if outtype == "long":
-    F = open("gen-abbrev.bib","w")    
+    F = open("gen-abbrev.bib","w")
 elif outtype == "short":
-    F = open("gen-abbrev-short.bib","w")    
+    F = open("gen-abbrev-short.bib","w")
 else:
     print "output is either long or short\n"
     sys.exit(1)
@@ -243,7 +250,7 @@ for occ in range (4,14):
 
 
 annual_occ("isca",17,1990,2019)
-annual_occ("nsdi",1,2004,2019)
+annual_occ("nsdi",1,2004,2020)
 
 
 for occ in range (5,13):
@@ -255,7 +262,7 @@ for y in range(2008,2020):
     F.write(make_asplos("asplos",y,occ))
     occ = occ +1
 
-for occ in range (6,17):
+for occ in range (6,18):
     y = 1997 + (occ-6)*2
     F.write(make_asplos("hotos",y,occ))
 
@@ -286,7 +293,7 @@ for occ in range (1,30):
     y = 1994 + occ
     F.write(make_sigcomm("usenix",y))
 
-for y in range (1990,2018): 
+for y in range (1990,2018):
     F.write(make_sigcomm("pldi",y))
 
 
@@ -301,10 +308,8 @@ for y in range(2017,2020):
     F.write(make_sigcomm("kbnets@sigcomm",y))
 
 annual_occ("hpca",1,1995,2019)
-annual_occ("micro",1,1968,2019)
 annual_occ("uss",7,1998,2019)
-
-
+annual_occ("micro",1,1968,2020)
 
 for y in range (2010,2017):
     F.write(make_sigcomm("apsys",y))
@@ -315,7 +320,7 @@ annual_occ("wsdm",1,2008,2017)
 annual_occ("iptps",1,2002,2017)
 annual_occ("podc",1,1982,2017)
 annual_occ("icac",1,2004,2017)
-annual_occ("fast",5,2007,2017)
+annual_occ("fast",5,2007,2020)
 
 
 ### careful - pdp changes from conference to workshop
@@ -341,7 +346,7 @@ for y in range (1989,2017):
 annual_occ("ipdps",24,2010,2017)
 annual_occ("icde",31,2015,2017)
 annual_occ("hotdep",2,2006,2016)
-annual_occ("dsn",37,2007,2017)
+annual_occ("dsn",36,2006,2017)
 annual_occ("vee",1,2005,2016)
 annual_occ("wmcsa",4,2002,2004)
 annual_occ("iccd",23,2005,2015)
@@ -379,7 +384,8 @@ annual_year("ndss",1995,2017)
 annual_occ("popl",15,1988,2018)
 
 F.write(make_sosp("uss",1996,6))
-annual_occ("uss",7,1998,2018)
+annual_occ("uss",7,1998,2020)
+
 
 annual_occ("stoc",1,1969,2018)
 
@@ -387,7 +393,7 @@ annual_occ("www",1,1994,2018)
 annual_occ("icdcs",20,2000,2018)
 annual_year("iiswc",2006,2018)
 annual_occ("spaa",12,2000,2018)
-annual_occ("vldb",26,2000,2008)
+annual_occ("vldb",26,2000,2020)
 annual_occ("vldb",5, 1979, 1980)
 
 annual_occ("sigcse",42,2011,2012)
@@ -408,6 +414,14 @@ annual_occ("bcb",8,2017,2018)
 annual_occ("minenet",1,2005,2008)
 annual_year("memsys",2015,2020)
 annual_year("date",2012,2019)
+annual_occ("srds",25,2006,2020)
+annual_occ("icnp",18,2010,2020)
+annual_occ("icdcs",11,1991,2020)
+annual_occ("hpdc",24,2015,2020)
+annual_year("hpts",1985,1986)
+annual_year("middleware",2000,2020)
+annual_year("adms@vldb",2000,2020)
+annual_year("globecom",2017,2020)
 
 #crazy ones:
 annual_year("iwmm",1992,1996)

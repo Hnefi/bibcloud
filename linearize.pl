@@ -226,6 +226,7 @@ sub Spill {
 	    $p = ReplaceCommand($p,"~\\ref", " [REF]");
 	    $p = ReplaceCommand($p,"\\S\\ref","[SECREF]");
 		$p = ReplaceCommand($p,"\\sout","");
+		$p = ReplaceCommand($p,"\\autoref","[AUTOREF]");
 
 
 	    while (($start=index($p,"~\\citeName{"))>=0) {
@@ -262,6 +263,8 @@ sub Spill {
 		$p = ReplaceString($p,"\\eg","e.g.,");
 		$p = ReplaceString($p,"\\ie","i.e.,");
 		$p = ReplaceString($p,"\\etc","etc.,");
+		$p = ReplaceString($p,"\\etal","et al.");
+		
 
 		$p = ReplaceString($p,"\\noindent","");
 		$p = ReplaceString($p,"\\centering","");
@@ -368,6 +371,13 @@ sub Spill {
 		print OUT substr($p,0,$start-1);
 	    }
 	    my $inputfile = substr($p,$openbrace+1,$end-$openbrace-1);
+
+		my $extension = index($inputfile,".tex");
+		if ($extension>0) { 
+			$inputfile = substr($inputfile,0,$extension);
+			print "XXX TRIM inputfile $inputfile\n";
+		}
+
 	    $p = substr($p,$end+1); #remaining paragraph
 	    print STDERR "Including $inputfile\n";
 	    if ($option ne "roff")  {

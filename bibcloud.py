@@ -99,7 +99,7 @@ DBLP_fieldlist = {'article':
 }
 
 
-# conferences where DBLP does not use an acronym ... 
+# conferences where DBLP does not use an acronym ...
 # normalization is never perfect
 NOACKCONFERENCE = {
     "ACM Conference on Computer and Communications Security" : "ACM Conference on Computer and Communications Security",
@@ -300,7 +300,8 @@ HTML_TO_BIB = {
     u"�" : "{\\~{n}}",
     u"�" : "{\\aa}",
     u"�" : "{\\'y}",
-    u"\u2248" : "{$\\approx$}"
+    u"\u2248" : "{$\\approx$}",
+    u"\u03BC" : "{$\\upmu{}$\\xspace}"
 }
 
 
@@ -330,7 +331,7 @@ def html_to_bibtex2(h):
                 x = x + c
         print("DEBUG: HTML conversion ",h.encode('utf-8')," --> ", x.encode('utf-8'))
         return x.encode('utf-8')
-    
+
 
 def html_to_bibtex(s):
     x = html_to_bibtex2(s)
@@ -352,7 +353,7 @@ def escape_percent_amp(s):
 
     y = s.find("\\&")
     if y>=0:
-        print "ESCAPING - skip \\&:",s 
+        print "ESCAPING - skip \\&:",s
         return s[:y+2] + escape_percent_amp(s[y+2:])
 
     x = s.find("%")
@@ -370,7 +371,7 @@ def escape_percent_amp(s):
         return s
 
 
-DOI_IN_DBLP = ["http://doi.acm.org/", "http://doi.ieeecomputersociety.org/", 
+DOI_IN_DBLP = ["http://doi.acm.org/", "http://doi.ieeecomputersociety.org/",
                "http://dx.doi.org/"]
 
 
@@ -380,7 +381,7 @@ def output_doi_ee(url):
     doi = url
     for x in DOI_IN_DBLP:
         doi = doi.replace(x, "")
-        
+
 #    r = "   url = {"+url+"},\n"
     r = ""
     if doi == url:
@@ -525,7 +526,7 @@ with open("dblp.bib", "w") as F:
                 else:
                     F.write("  booktitle = "+booktitle+year+",\n")
 
-                if (booktitle in WORKSHOPS) or (xml.tag=="incollection") : 
+                if (booktitle in WORKSHOPS) or (xml.tag=="incollection") :
                     F.write("  keywords = {workshop},\n")
                     print(booktitle,"in workshop!",c)
 
