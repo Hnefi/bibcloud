@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: latin-1 -*-
 
 """
@@ -353,7 +353,7 @@ def escape_percent_amp(s):
 
     y = s.find("\\&")
     if y>=0:
-        print "ESCAPING - skip \\&:",s
+        print("ESCAPING - skip \\&:",s)
         return s[:y+2] + escape_percent_amp(s[y+2:])
 
     x = s.find("%")
@@ -449,6 +449,7 @@ latex_backmap = {key: find_revalias(key) for key in dblp_citations}
 update_dblp(dblp_citations, latex_backmap)
 
 # reload DBLP file
+'''
 tree = ET.parse(LOCALFILES['cache'])
 root = tree.getroot()
 num_children = 0
@@ -457,6 +458,7 @@ for child in root:
     if (child.tag == "article" or child.tag == "inproceedings" or
        child.tag == "book"):
         DBLP_article["DBLP:"+child.attrib['key']] = child
+'''
 
 with open("dblp.bib", "w") as F:
     F.write("%%% This file is automatically genreated by bibcloud.py\n")
