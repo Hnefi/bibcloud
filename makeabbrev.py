@@ -320,7 +320,7 @@ for occ in range (6,18):
     y = 1997 + (occ-6)*2
     F.write(make_asplos("hotos",y,occ))
 
-for occ in range (6,17):
+for occ in range (6,19):
     y = 2007 + (occ-6)
     F.write(make_asplos("hotnets",y,occ))
 
