@@ -117,6 +117,9 @@ CONF = {
     "middleware" : ['y',"Proceedings of the YEAR International Middleware Conference"],
     "adms@vldb" : ['y', "Proceedings of the International Workshop on Accelerating Analytics and Data Management Systems Using Modern Processor and Storage Architectures (ADMS@VLDB)"],
     "globecom" : ['y', "Proceedings of the YEAR IEEE Global Communications Conference (GLOBECOM)"],
+    "iccad" : ['y', "Proceedings of the YEAR IEEE/ACM International Conference on Computer-Aided Design (ICCAD)"],
+    "systor" : ['o', "Proceedings of the OCCURRENCE ACM International Conference on Systems and Storage (SYSTOR)"],
+    "ancs" : ['y', "Proceedings of the YEAR Symposium on Architectures for Networking and Communication Systems (ANCS)"],
 }
 
 SHORTCONF = {
@@ -429,6 +432,12 @@ annual_occ("ismm",4,2004,2005)
 annual_year("networking",2010,2019)
 annual_occ("apnet",1,2017,2018)
 annual_occ("oopsla",15,2000,2019)
+
+annual_year("iccad",2008,2020)
+# workshops added by mark for nebula
+annual_occ("systor",12,2019,2020)
+annual_year("ancs",2018,2019)
+
 
 for occ in range (1,10):
     y = 2001 + occ*2
