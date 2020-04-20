@@ -118,7 +118,7 @@ CONF = {
     "adms@vldb" : ['y', "Proceedings of the International Workshop on Accelerating Analytics and Data Management Systems Using Modern Processor and Storage Architectures (ADMS@VLDB)"],
     "globecom" : ['y', "Proceedings of the YEAR IEEE Global Communications Conference (GLOBECOM)"],
     "iccad" : ['y', "Proceedings of the YEAR IEEE/ACM International Conference on Computer-Aided Design (ICCAD)"],
-    "systor" : ['o', "Proceedings of the OCCURRENCE ACM International Conference on Systems and Storage (SYSTOR)"],
+    "systor" : ['o', "Proceedings of the OCCURENCE ACM International Conference on Systems and Storage (SYSTOR)"],
     "ancs" : ['y', "Proceedings of the YEAR Symposium on Architectures for Networking and Communication Systems (ANCS)"],
 }
 
@@ -126,6 +126,45 @@ SHORTCONF = {
     'usenix' : 'USENIX ATC'
 }
 
+IEEEAbbrevSubs = {
+        'Annals' : "Ann.",
+        "Annual" : "Annu.",
+        "Colloqium" : "Colloq.",
+        "Conference" : "Conf.",
+        "Convention" : "Conv.",
+        "Exposition" : "Expo.",
+        "International" : "Int.",
+        "Meeting" : "Meeting",
+        "National" : "Nat.",
+        "Proceedings" : "Proc.",
+        "Record" : "Rec.",
+        "Symposium" : "Symp.",
+        "Technical Digest" : "Tech. Dig.",
+        "Technical Paper" : "Tech. Paper",
+        "Workshop" : "Workshop",
+        "Digest" : "Dig.",
+        " of the" : "",
+        " on" : ""
+        }
+
+def substitute_ieee_abbrevs():
+    global CONF
+    # Build new "IEEEConf" dict and then write it back to CONF
+    IEEEConf = { }
+
+    for conf_abbrev, format_list in CONF.items():
+        new_format_list = [ ]
+        new_format_list.append(format_list[0])
+        string_to_sub = format_list[1]
+
+        for word, abbrev in IEEEAbbrevSubs.items():
+            string_to_sub = string_to_sub.replace(word,abbrev)
+        new_format_list.append(string_to_sub)
+
+        IEEEConf[conf_abbrev] = new_format_list
+
+    CONF = IEEEConf
+    print("New conf dictionary is:",CONF)
 
 def make_sigcomm(conf,year):
     global CONF, outtype,SHORTCONF
@@ -224,8 +263,12 @@ if outtype == "long":
     F = open("gen-abbrev.bib","w")
 elif outtype == "short":
     F = open("gen-abbrev-short.bib","w")
+elif outtype == "ieee":
+    F = open("gen-abbrev-ieee.bib","w")
+    # Go through CONF dictionary and make all substitutions
+    substitute_ieee_abbrevs()
 else:
-    print "output is either long or short\n"
+    print "output is either long, short, or ieee\n"
     sys.exit(1)
 
 
@@ -252,7 +295,7 @@ for occ in range (4,14):
     F.write(make_sosp("osdi",y,occ))
 
 
-annual_occ("isca",17,1990,2019)
+annual_occ("isca",17,1990,2020)
 annual_occ("nsdi",1,2004,2020)
 
 
