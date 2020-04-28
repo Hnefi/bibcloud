@@ -25,12 +25,12 @@ CONF = {
     'sigcomm'   : ['y', "Proceedings of the ACM SIGCOMM YEAR Conference"],
     'sigmetrics': ['y', "Proceedings of the YEAR ACM SIGMETRICS International Conference on Measurement and Modeling of Computer Systems"],
     'sosp'      : ['o', "Proceedings of the OCCURENCE ACM Symposium on Operating Systems Principles (SOSP)"],
-    'osdi'      : ['o', "Proceedings of the OCCURENCE Symposium on Operating System Design and Implementation (OSDI)"],
+    'osdi'      : ['o', "Proceedings of the OCCURENCE Symposium on Operating Systems Design and Implementation (OSDI)"],
     'isca'      : ['o', "Proceedings of the OCCURENCE International Symposium on Computer Architecture (ISCA)"],
     'nsdi'      : ['o', "Proceedings of the OCCURENCE Symposium on Networked Systems Design and Implementation (NSDI)"],
     'asplos'    : ['r', "Proceedings of the OCCURENCE International Conference on Architectural Support for Programming Languages and Operating Systems (ASPLOS-ROMAN)"],
-    'hotos'     : ['r', "Proceedings of The OCCURENCE Workshop on Hot Topics in Operating Systems (HotOS-ROMAN)"],
-    'hotnets'   : ['r', "Proceedings of The OCCURENCE ACM Workshop on Hot Topics in Networks (HotNets-ROMAN)"],
+    'hotos'     : ['r', "Proceedings of the OCCURENCE Workshop on Hot Topics in Operating Systems (HotOS-ROMAN)"],
+    'hotnets'   : ['r', "Proceedings of the OCCURENCE ACM Workshop on Hot Topics in Networks (HotNets-ROMAN)"],
     'sc'        : ['y', "Proceedings of the YEAR ACM/IEEE Conference on Supercomputing (SC)"],
     'conext'    : ['y', "Proceedings of the YEAR ACM Conference on Emerging Networking Experiments and Technology (CoNEXT)"],
     'imc'       : ['o', "Proceedings of the OCCURENCE ACM SIGCOMM Workshop on Internet Measurement (IMC)"],
@@ -130,15 +130,24 @@ IEEEAbbrevSubs = {
         'Annals' : "Ann.",
         "Annual" : "Annu.",
         "Colloqium" : "Colloq.",
+        "Communication" : "Commun.",
         "Conference" : "Conf.",
+        "Computer" : "Comp.",
         "Convention" : "Conv.",
         "Exposition" : "Expo.",
         "International" : "Int.",
+        "Measurement" : "Meas.",
+        "Modeling" : "Model.",
         "Meeting" : "Meeting",
         "National" : "Nat.",
+        "Performance" : "Perf.",
         "Proceedings" : "Proc.",
+        "Programming" : "Prog.",
+        "Principles" : "Princ.",
         "Record" : "Rec.",
+        "Systems" : "Sys.",
         "Symposium" : "Symp.",
+        "Technical" : "Tech.",
         "Technical Digest" : "Tech. Dig.",
         "Technical Paper" : "Tech. Paper",
         "Workshop" : "Workshop",
@@ -164,7 +173,6 @@ def substitute_ieee_abbrevs():
         IEEEConf[conf_abbrev] = new_format_list
 
     CONF = IEEEConf
-    print("New conf dictionary is:",CONF)
 
 def make_sigcomm(conf,year):
     global CONF, outtype,SHORTCONF
