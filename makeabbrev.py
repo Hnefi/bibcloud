@@ -128,7 +128,7 @@ SHORTCONF = {
 
 IEEEAbbrevSubs = {
         'Annals' : "Ann.",
-        "Annual" : "Annu.",
+        #"Annual" : "Annu.",
         "Colloqium" : "Colloq.",
         "Communication" : "Commun.",
         "Conference" : "Conf.",
