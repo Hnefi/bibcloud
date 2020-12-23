@@ -260,8 +260,8 @@ def update_dblp(citations, latex_backmap):
     for c in missing_citations:
         key = c[5:]
         print("bibcloud: fetching", c, "for ", latex_backmap[c])
-        print("CURL ... curl http://dblp.uni-trier.de/rec/xml/"+key+".xml")
-        os.system("curl https://dblp.uni-trier.de/rec/xml/" + key +
+        print("CURL ... curl http://dblp.uni-trier.de/rec/"+key+".xml")
+        os.system("curl https://dblp.uni-trier.de/rec/" + key +
                   ".xml >.bibcloud/tmp.xml")
         if os.path.getsize(".bibcloud/tmp.xml") > 0:
             try:
@@ -301,7 +301,7 @@ HTML_TO_BIB = {
     u"�" : "{\\aa}",
     u"�" : "{\\'y}",
     u"\u2248" : "{$\\approx$}",
-    u"\u03BC" : "{{$\\upmu$}{}}"
+    u"\u03BC" : "{u}"
 }
 
 
