@@ -28,7 +28,7 @@ CONF = {
     'osdi'      : ['o', "Proceedings of the OCCURENCE Symposium on Operating Systems Design and Implementation (OSDI)"],
     'isca'      : ['o', "Proceedings of the OCCURENCE International Symposium on Computer Architecture (ISCA)"],
     'nsdi'      : ['o', "Proceedings of the OCCURENCE Symposium on Networked Systems Design and Implementation (NSDI)"],
-    'asplos'    : ['r', "Proceedings of the OCCURENCE International Conference on Architectural Support for Programming Languages and Operating Systems (ASPLOS-ROMAN)"],
+    'asplos'    : ['r', "Proceedings of the OCCURENCE International Conference on Architectural Support for Programming Languages and Operating Systems (ASPLOS)"],
     'hotos'     : ['r', "Proceedings of the OCCURENCE Workshop on Hot Topics in Operating Systems (HotOS-ROMAN)"],
     'hotnets'   : ['r', "Proceedings of the OCCURENCE ACM Workshop on Hot Topics in Networks (HotNets-ROMAN)"],
     'sc'        : ['y', "Proceedings of the YEAR ACM/IEEE Conference on Supercomputing (SC)"],
@@ -312,7 +312,7 @@ for occ in range (5,13):
     F.write(make_asplos("asplos",y,occ))
 
 occ = 13
-for y in range(2008,2020):
+for y in range(2008,2021):
     F.write(make_asplos("asplos",y,occ))
     occ = occ +1
 
