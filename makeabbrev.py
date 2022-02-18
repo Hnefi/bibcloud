@@ -298,13 +298,14 @@ for occ in range (1,32):
 
 F.write(make_sosp("osdi",1996,2))
 F.write(make_sosp("osdi",1999,3))
-for occ in range (4,14):
+for occ in range (4,15):
     y = 2000 + (occ-4)*2
     F.write(make_sosp("osdi",y,occ))
+annual_occ("osdi",15,2021,2024)
 
 
-annual_occ("isca",17,1990,2020)
-annual_occ("nsdi",1,2004,2020)
+annual_occ("isca",17,1990,2021)
+annual_occ("nsdi",1,2004,2021)
 
 
 for occ in range (5,13):
@@ -312,7 +313,7 @@ for occ in range (5,13):
     F.write(make_asplos("asplos",y,occ))
 
 occ = 13
-for y in range(2008,2021):
+for y in range(2008,2022):
     F.write(make_asplos("asplos",y,occ))
     occ = occ +1
 
@@ -363,7 +364,7 @@ for y in range(2017,2020):
 
 annual_occ("hpca",1,1995,2019)
 annual_occ("uss",7,1998,2019)
-annual_occ("micro",1,1968,2020)
+annual_occ("micro",1,1968,2022)
 
 for y in range (2010,2017):
     F.write(make_sigcomm("apsys",y))
@@ -374,7 +375,7 @@ annual_occ("wsdm",1,2008,2017)
 annual_occ("iptps",1,2002,2017)
 annual_occ("podc",1,1982,2017)
 annual_occ("icac",1,2004,2017)
-annual_occ("fast",5,2007,2020)
+annual_occ("fast",5,2007,2021)
 
 
 ### careful - pdp changes from conference to workshop
