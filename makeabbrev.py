@@ -49,7 +49,7 @@ CONF = {
     'podc'      : ['o', "Proceedings of the OCCURENCE Annual ACM Symposium on Principles of Distributed Computing (PODC)"],
     'icac'      : ['o', "Proceedings of the OCCURENCE International Conference on Autonomic Computing (ICAC)"],
     'acsac'     : ['o', "Proceedings of the OCCURENCE International Conference on Autonomic Computing (ICAC)"],
-    'fast'      : ['o', "Proceedings of the OCCURENCE USENIX Conference on File and Storage Technologie (FAST)"],
+    'fast'      : ['o', "Proceedings of the OCCURENCE USENIX Conference on File and Storage Technologies (FAST)"],
     'pdp'       : ['o', "Proceedings of the OCCURENCE Euromicro International Conference on Parallel, Distributed, and Network-Based Processing (PDP)"],
     'acsac'     : ['o', "Proceedings of the OCCURENCE Annual Computer Security Applications Conference (ACSAC)"],
     'hotsdn'    : ['o', "Proceedings of the OCCURENCE  workshop on Hot topics in software defined networking (HotSDN)"],
