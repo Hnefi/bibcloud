@@ -50,7 +50,7 @@ CONF = {
     'podc'      : ['o', "Proceedings of the OCCURENCE Annual ACM Symposium on Principles of Distributed Computing (PODC)"],
     'icac'      : ['o', "Proceedings of the OCCURENCE International Conference on Autonomic Computing (ICAC)"],
     'acsac'     : ['o', "Proceedings of the OCCURENCE International Conference on Autonomic Computing (ICAC)"],
-    'fast'      : ['o', "Proceedings of the OCCURENCE USENIX Conference on File and Storage Technologie (FAST)"],
+    'fast'      : ['o', "Proceedings of the OCCURENCE USENIX Conference on File and Storage Technologies (FAST)"],
     'pdp'       : ['o', "Proceedings of the OCCURENCE Euromicro International Conference on Parallel, Distributed, and Network-Based Processing (PDP)"],
     'acsac'     : ['o', "Proceedings of the OCCURENCE Annual Computer Security Applications Conference (ACSAC)"],
     'hotsdn'    : ['o', "Proceedings of the OCCURENCE  workshop on Hot topics in software defined networking (HotSDN)"],
@@ -82,7 +82,7 @@ CONF = {
     "icdcs"   : ['o', "Proceedings of the OCCURENCE IEEE International Conference on Distributed Computing Systems (ICDCS)"],
     "iiswc"   : ['y', "Proceedings of the YEAR IEEE International Symposium on Workload Characterization (IISWC)"],
     "spaa"    : ['o', "Proceedings of the OCCURENCE ACM Symposium on Parallelism in Algorithms and Architectures (SPAA)"],
-    "vldb"     : ['o', "Proceedings of the OCCURENCE International Conference on Very Large DataBases (VLDB)"],
+    "vldb"     : ['o', "Proceedings of the OCCURENCE International Conference on Very Large Databases (VLDB)"],
     "sigcse"  : ['o', "Proceedings of the OCCURENCE ACM Technical Symposium on Computer Science Education (SIGCSE)"],
     "hoti"    : ['y', "Proceedings of the YEAR Annual Symposium on High-Performance Interconnects"],
     "rtas"    : ['y', "Proceedings of the YEAR Real-Time and Embedded Technology and Applications Symposium"],
@@ -299,9 +299,10 @@ for occ in range (1,32):
 
 F.write(make_sosp("osdi",1996,2))
 F.write(make_sosp("osdi",1999,3))
-for occ in range (4,14):
+for occ in range (4,15):
     y = 2000 + (occ-4)*2
     F.write(make_sosp("osdi",y,occ))
+annual_occ("osdi",15,2021,2024)
 
 
 annual_occ("isca",17,1990,2021)
@@ -313,7 +314,7 @@ for occ in range (5,13):
     F.write(make_asplos("asplos",y,occ))
 
 occ = 13
-for y in range(2008,2021):
+for y in range(2008,2023):
     F.write(make_asplos("asplos",y,occ))
     occ = occ +1
 
@@ -371,7 +372,7 @@ for y in range(2017,2020):
 
 annual_occ("hpca",1,1995,2019)
 annual_occ("uss",7,1998,2019)
-annual_occ("micro",1,1968,2020)
+annual_occ("micro",1,1968,2022)
 
 for y in range (2010,2017):
     F.write(make_sigcomm("apsys",y))
@@ -382,7 +383,7 @@ annual_occ("wsdm",1,2008,2017)
 annual_occ("iptps",1,2002,2017)
 annual_occ("podc",1,1982,2017)
 annual_occ("icac",1,2004,2017)
-annual_occ("fast",5,2007,2020)
+annual_occ("fast",5,2007,2021)
 
 
 ### careful - pdp changes from conference to workshop
@@ -456,6 +457,7 @@ annual_occ("icdcs",20,2000,2018)
 annual_year("iiswc",2006,2018)
 annual_occ("spaa",12,2000,2018)
 annual_occ("vldb",26,2000,2020)
+annual_occ("vldb",18,1992,1993)
 annual_occ("vldb",5, 1979, 1980)
 
 annual_occ("sigcse",42,2011,2012)
