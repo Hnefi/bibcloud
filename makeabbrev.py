@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 
 #####
 ##### generates the dblp-abbrev file
@@ -180,7 +180,7 @@ def make_sigcomm(conf,year):
 
     c = CONF[conf]
     if c[0] != 'y':
-        print "conf mismatch ",conf
+        print("conf mismatch ",conf)
         sys.exit(1)
     s = c[1]
 
@@ -200,7 +200,7 @@ def make_sosp(conf,year,occurence):
     global CONF
     c = CONF[conf]
     if c[0] != 'o':
-        print "conf mismatch ",conf
+        print("conf mismatch ",conf)
         sys.exit(1)
     s = c[1]
 
@@ -221,7 +221,7 @@ def make_asplos(conf,year,occurence):
 
     c = CONF[conf]
     if c[0] != 'r' :
-        print "conf mismatch ",conf
+        print("conf mismatch ",conf)
         sys.exit(1)
 
     s = c[1]
@@ -265,7 +265,7 @@ if len(sys.argv) == 1:
 elif len(sys.argv) == 2:
     outtype = sys.argv[1]
 else:
-    print "bad argv\n"
+    print("bad argv\n")
     sys.exit(1)
 
 if outtype == "long":
@@ -277,7 +277,7 @@ elif outtype == "ieee":
     # Go through CONF dictionary and make all substitutions
     substitute_ieee_abbrevs()
 else:
-    print "output is either long, short, or ieee\n"
+    print("output is either long, short, or ieee\n")
     sys.exit(1)
 
 
