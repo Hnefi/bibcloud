@@ -305,7 +305,7 @@ for occ in range (4,15):
 annual_occ("osdi",15,2021,2024)
 
 
-annual_occ("isca",17,1990,2021)
+annual_occ("isca",17,1990,2022)
 annual_occ("nsdi",1,2004,2021)
 
 
@@ -400,7 +400,7 @@ for y in range (1993,2006):
 
 annual_occ("acsac",10,1994,2017)
 annual_occ("hotsdn",1,2012,2017)
-annual_occ("hotcloud",1,2009,2017)
+annual_occ("hotcloud",1,2009,2021)
 
 
 for y in range (1989,2017):
@@ -463,7 +463,7 @@ annual_occ("vldb",5, 1979, 1980)
 annual_occ("sigcse",42,2011,2012)
 annual_occ("cloud",2,2009,2018)
 annual_occ("woot",4,2010,2018)
-annual_year("sosr",2015,2019)
+annual_year("sosr",2015,2022)
 annual_occ("lcn",38,2013,2019)
 annual_occ("wren",1,2009,2010)
 annual_year("simpar",2008,2018)
