@@ -356,7 +356,7 @@ for occ in range (1,30):
     y = 1994 + occ
     F.write(make_sigcomm("usenix",y))
 
-for y in range (1990,2018):
+for y in range (1990,2022):
     F.write(make_sigcomm("pldi",y))
 
 
@@ -436,7 +436,7 @@ annual_occ("lisa",10,1996,2016)
 annual_occ("pact",6,1997,2018)
 annual_occ("sigcse",36,2005,2006)
 
-annual_year("ispass",2000,2017)
+annual_year("ispass",2000,2021)
 annual_occ("fpl",11,2001,2017)    #was a workshop earlier
 annual_occ("threepgcic",5,2010,2017)
 annual_occ("mobicom",6,2000,2017)
