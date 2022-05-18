@@ -344,7 +344,7 @@ for occ in range (1,17):
 
 annual_occ("imc",1,2001,2016)
 
-for occ in range (1,10):
+for occ in range (1,15):
     y = 2009 + occ
     F.write(make_sigcomm("socc",y))
 
