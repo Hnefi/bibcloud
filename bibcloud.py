@@ -308,7 +308,7 @@ HTML_TO_BIB = {
 def author_trim(a):
     x = a.split(' ')
     lastword = x[len(x)-1]
-    if (lastword[0:3] == '000'):
+    if ('00' in lastword[0:3]):
         print("AUTHOR TRIM",x,lastword)
         b =  ' '.join(x[0:len(x)-1])
         print("AUTHOR2 ",b)

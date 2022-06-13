@@ -29,7 +29,7 @@ CONF = {
     'isca'      : ['o', "Proceedings of the OCCURENCE International Symposium on Computer Architecture (ISCA)"],
     'nsdi'      : ['o', "Proceedings of the OCCURENCE Symposium on Networked Systems Design and Implementation (NSDI)"],
     'asplos'    : ['r', "Proceedings of the OCCURENCE International Conference on Architectural Support for Programming Languages and Operating Systems (ASPLOS)"],
-    'hotstorage'     : ['o', "Proceedings of the OCCURENCE USENIX Workshop on Hot Topics in Storage and File Systems (HotStorage-ROMAN)"],
+    'hotstorage'     : ['r', "Proceedings of the OCCURENCE USENIX Workshop on Hot Topics in Storage and File Systems (HotStorage-ROMAN)"],
     'hotos'     : ['r', "Proceedings of the OCCURENCE Workshop on Hot Topics in Operating Systems (HotOS-ROMAN)"],
     'hotnets'   : ['r', "Proceedings of the OCCURENCE ACM Workshop on Hot Topics in Networks (HotNets-ROMAN)"],
     'sc'        : ['y', "Proceedings of the YEAR ACM/IEEE Conference on Supercomputing (SC)"],
@@ -327,7 +327,7 @@ last_year = 2020
 first_year = 2020-12
 for occ in range(num_hotstorage_confs):
     y = first_year + occ
-    F.write(make_sosp("hotstorage",y,occ))
+    F.write(make_asplos("hotstorage",y,occ))
 
 for occ in range (6,19):
     y = 2007 + (occ-6)
