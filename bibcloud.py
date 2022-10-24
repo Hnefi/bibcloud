@@ -386,9 +386,11 @@ def output_doi_ee(url):
     r = ""
     if doi == url:
         # print "DOI: ",url
-        return r+"  "+"ee = {"+escape_percent(url)+"},\n"
+        #return r+"  "+"ee = {"+escape_percent(url)+"},\n"
+        return r+"  "+"note = \"\\url{"+escape_percent(url)+"}\",\n"
     else:
-        return r+"  "+"doi = {"+doi+"},\n"
+        return r+"  "+"note = \"\\url{"+escape_percent(url)+"}\",\n"
+        #return r+"  "+"doi = {"+doi+"},\n"
 
 
 """
